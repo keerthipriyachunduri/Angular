@@ -1,0 +1,108 @@
+<div class="banner2">   
+    
+</div>
+
+
+<div class="container emp-profile">
+    
+        <div class="row">            
+            <div class="col-md-12">
+                <div class="profile-head">
+                            <p><b>{{currentUserDetails.User_First_Name}} {{currentUserDetails.User_Last_Name}}</b></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="change-tab" data-toggle="tab" href="#changepassword" role="tab" aria-controls="profile" aria-selected="false">Change Password</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">            
+            <div class="col-md-12">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>User Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUserDetails.User_Email_Id}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUserDetails.User_First_Name}} {{currentUserDetails.User_Last_Name}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUserDetails.User_Email_Id}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Phone</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{currentUserDetails.User_Phone_Number}}</p>
+                                    </div>
+                                </div>  
+                                <div class="col-md-3 ">
+                                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                                </div>                              
+                    </div>
+                    <div class="tab-pane fade" id="changepassword" role="tabpanel" aria-labelledby="changepassword-tab">
+                        <form id="changePasswordForm" [formGroup]="changePasswordForm" (ngSubmit)="onSubmit()">    
+                            <div class="form-group">
+                                <label for="currentPassword" class="text-info">Current Password</label>
+                                <input type="text" class="form-control" placeholder="Current Password..." formControlName="currentPassword" [ngClass]= "{'is-invalid' : submitted && formcp.currentPassword.errors}"/>
+                                <div *ngIf="submitted && formcp.currentPassword.errors" class="invalid-feedback"> 
+                                    <div *ngIf="formcp.currentPassword.errors.required">Please enter Current Password</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword" class="text-info">New Password</label>
+                                <input type="text" class="form-control" placeholder="New Password..." formControlName="newPassword" [ngClass]= "{'is-invalid' : submitted && formcp.newPassword.errors}"/>
+                                
+                                <div class="invalid-feedback" *ngIf = "submitted && formcp.newPassword.errors?.required">
+                                    <div *ngIf="formcp.newPassword.errors?.required">Please enter New password</div>
+                                </div>
+                                <div class="invalid-feedback" *ngIf = "submitted && formcp.newPassword.errors?.minlength">
+                                    <div *ngIf="formcp.newPassword.errors?.minlength">Password must be at least 6 characters</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmNewPassword" class="text-info"> Confrim New Password</label>
+                                <input type="text" class="form-control" placeholder="Confirm New Password..." formControlName="confirmNewPassword" [ngClass]= "{'is-invalid' : submitted && formcp.confirmNewPassword.errors}"/>
+                                
+                                <div class="invalid-feedback" *ngIf = "submitted && formcp.confirmNewPassword.errors?.required">
+                                    <div *ngIf="formcp.confirmNewPassword.errors?.required">Please confirm New Password</div>
+                                </div>
+                                <div *ngIf="submitted && formcp.confirmNewPassword.errors?.mustMatch" class="invalid-feedback">
+                                    <div *ngIf="formcp.confirmNewPassword.errors?.mustMatch">Passwords should match</div>
+                                </div>
+                            </div>                           
+                            <div class="form-group text-center ">   
+                           
+                                <input type="submit" name="submit" class="btn btn-info btn-md text-bold" value="Submit">
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                               
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+               
+</div>

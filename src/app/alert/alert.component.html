@@ -1,0 +1,8 @@
+
+
+<div id="container" *ngIf="message" [ngClass]="message.cssClass" [hidden]="IsmodelShow">
+    <div id="exampleModal" class="reveal-modal">
+        {{message.text}}
+        <a type="button" class="close pull-right" (click)="close()">&times;</a>
+    </div>
+</div>

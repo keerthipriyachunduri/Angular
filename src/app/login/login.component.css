@@ -1,0 +1,37 @@
+#login{
+    background-image: url(src/assets/images/overlay.png),url("src/assets/images/banner.jpg");    
+    background-color: Black;
+    Z-index: 5;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+#login .container #login-row #login-column #login-box {
+    margin-top: 120px;
+    max-width: 700px;
+    height: auto;
+    border: 1px solid #9C9C9C;
+    background-color: #51BAA4;
+    margin-bottom:120px;
+  }
+  #loginForm .form-group .form-control{
+    background-color: white;
+  }
+  #login .container #login-row #login-column #login-box #loginForm {
+    padding: 20px;
+  }
+  #login .container #login-row #login-column #login-box #loginForm #login-link {
+    margin-top: -85px;
+  }
+  .text-info{
+    color: black !important;
+  }
+  #loginForm .form-group input[type="submit"] {
+    background-color: black !important;
+
+  }
+
+  .invalid-feedback{
+    font-weight: bold;
+    
+  }

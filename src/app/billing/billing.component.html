@@ -1,0 +1,30 @@
+<div class="banner2"></div>
+<div class="container" id="formContainer">
+    <div class="row">
+        <div class="col-md-8">
+            <form id="billingForm" class="form" [formGroup]="billingForm" (ngSubmit)="onSubmit()">
+                <div class="form-group ">
+                    <label>Membership Options</label>
+                    
+                        <label class="radio-inline"> 
+                        
+                        <input type="radio"  value="yearMembership" name="membership" formControlName="membership">
+                        Year Membership fixed amount (200 dollars)
+                    </label>
+                       
+                    
+                      <label for="membership" class="radio-inline">
+                        <input type="radio"  value="otherMembership" name="membership" formControlName="membership">     
+                        <span>Year Membership fixed amount (200 dollars)</span>
+                    </label>  
+                
+                
+                </div>
+                <div class="form-group text-center ">        
+                    <input type="submit" name="submit" class="btn btn-info btn-md text-bold" value="Submit">
+                                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div id="register">    
+    <div class="container">
+        <div id="register-row" class="row justify-content-center align-items-center">
+            <div id="register-column" class="col-md-6">
+                <div id="register-box" class="col-md-12">
+                    <form id="registerForm" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                        <h3 class="text-center text-info">Register</h3>
+                        <div class="form-group">
+                            <label for="firstName" class="text-info">First Name</label>
+                            <input type="text" class="form-control" placeholder="First Name..." formControlName="firstName" [ngClass]= "{'is-invalid' : submitted && f.firstName.errors}"/>
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback"> 
+                                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="text-info">Last Name</label>
+                            <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name..." [ngClass]="{'is-invalid' :submitted && f.lastName.errors}">
+                            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="text-info">Email</label>
+                            <input type="text" class="form-control" placeholder="Username or Email Id..." formControlName="email" [ngClass]="{'is-invalid' :submitted && f.email.errors}">
+                            <div *ngIf="submitted && f.email.errors?.pattern" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors?.pattern">Please enter valid email address</div>
+                            </div>
+                            <div *ngIf="submitted && f.email.errors?.required" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors?.required">Please enter email address</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneNumber" class="text-info">Phone Number</label>
+                            <input type="text" name="phoneNumber" placeholder="Phone Number..." id="phoneNumber" class="form-control" formControlName="phoneNumber">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-info">Password</label>
+                            <input type="text" class="form-control" placeholder="Password" formControlName="password" [ngClass]="{'is-invalid': submitted && f.password.errors}"/>
+                            <div class="invalid-feedback" *ngIf = "submitted && f.password.errors?.required">
+                                <div *ngIf="f.password.errors?.required">Please enter password</div>
+                            </div>
+                            <div class="invalid-feedback" *ngIf = "submitted && f.password.errors?.minlength">
+                                <div *ngIf="f.password.errors?.minlength">Password must be at least 6 characters</div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword" class="text-info"> Confirm Password</label>
+                            <input type="text" class="form-control" placeholder="Confirm Password"  formControlName="confirmPassword" [ngClass]="{'is-invalid': submitted && f.confirmPassword.errors}"/>
+                            <div *ngIf="submitted && f.confirmPassword.errors?.required" class="invalid-feedback">
+                                <div *ngIf="f.confirmPassword.errors?.required">Please confirm Password</div>
+                            </div>
+                            <div *ngIf="submitted && f.confirmPassword.errors?.mustMatch" class="invalid-feedback">
+                                <div *ngIf="f.confirmPassword.errors?.mustMatch">Passwords should match</div>
+                            </div>
+                            
+                        </div>
+                        <div class="form-group text-center ">   
+                           
+                            <input type="submit" name="submit" class="btn btn-info btn-md text-bold" value="Register">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                           
+                            
+                        </div>
+                
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
